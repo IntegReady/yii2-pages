@@ -1,5 +1,8 @@
 <?php
 
+use common\modules\models\Pages;
+use common\modules\models\PagesCategory;
+use common\modules\PageHelper;
 use yii\grid\GridView;
 use yii\helpers\Html;
 
@@ -24,17 +27,33 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns'      => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            //'id',
             'title',
             'alias',
-            'category_id',
-            'text:ntext',
-            'language',
+            [
+                'attribute' => 'category_id',
+                'value'     => function ($data) {
+                    return PagesCategory::getCategoryById($data->category_id);
+                },
+                'filter'    => Html::activeDropDownList($searchModel, 'category_id', PagesCategory::getCategoryList(), ['class' => 'form-control', 'prompt' => Yii::t('fx', '--Выберите категорию--')]),
+            ],
+            // 'text:ntext',
+            [
+                'attribute' => 'language',
+                'value'     => 'language',
+                'filter'    => Html::activeDropDownList($searchModel, 'language', PageHelper::getLanguagesList(), ['class' => 'form-control', 'prompt' => Yii::t('fx', 'trans-lang-choice')]),
+            ],
             'date_created',
             // 'date_updated',
             // 'date_published_in',
             // 'date_published_out',
-            'sitemap',
+            [
+                'attribute' => 'sitemap',
+                'value'     => function ($data) {
+                    return Pages::getSitemapStatusById($data->sitemap);
+                },
+                'filter'    => Html::activeDropDownList($searchModel, 'sitemap', Pages::getSitemapStatusList(), ['class' => 'form-control', 'prompt' => Yii::t('fx', '--Выберите статус--')]),
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

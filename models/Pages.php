@@ -29,6 +29,9 @@ class Pages extends \yii\db\ActiveRecord
 
     const DEFAULT_PAGE_SIZE = 20;
 
+    const SITEMAP_TRUE  = 1;
+    const SITEMAP_FALSE = 0;
+
     /**
      * @inheritdoc
      */
@@ -38,16 +41,15 @@ class Pages extends \yii\db\ActiveRecord
     }
 
     /**
-     * @param int $category
+     * @param $category_id
      *
-     * Returns query
-     * @return \yii\db\ActiveQuery
+     * @return $this
      */
-    public static function getAllByCategoryQuery($category_id = self::STATICS)
+    public static function getAllByCategoryQuery($category_id)
     {
         return static::find()
             ->where(['language' => Yii::$app->language])
-            //->where(['category_id' => $category_id])
+            ->where(['category_id' => $category_id])
             ->andWhere('date_published_in < now() and (date_published_out > now() or date_published_out is null)')
             ->orderBy('date_published_in DESC');
     }
@@ -76,17 +78,17 @@ class Pages extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id'                 => 'ID',
-            'title'              => 'Title',
-            'alias'              => 'Alias',
-            'category_id'        => 'Category ID',
-            'text'               => 'Text',
-            'language'           => 'Language',
-            'date_created'       => 'Date Created',
-            'date_updated'       => 'Date Updated',
-            'date_published_in'  => 'Date Published In',
-            'date_published_out' => 'Date Published Out',
-            'sitemap'            => 'Sitemap',
+            'id'                 => Yii::t('fx', 'ID'),
+            'title'              => Yii::t('fx', 'Title'),
+            'alias'              => Yii::t('fx', 'Alias'),
+            'category_id'        => Yii::t('fx', 'Category ID'),
+            'text'               => Yii::t('fx', 'Text'),
+            'language'           => Yii::t('fx', 'Language'),
+            'date_created'       => Yii::t('fx', 'Date Created'),
+            'date_updated'       => Yii::t('fx', 'Date Updated'),
+            'date_published_in'  => Yii::t('fx', 'Date Published In'),
+            'date_published_out' => Yii::t('fx', 'Date Published Out'),
+            'sitemap'            => Yii::t('fx', 'Sitemap'),
         ];
     }
 
@@ -96,5 +98,26 @@ class Pages extends \yii\db\ActiveRecord
     public function getCategory()
     {
         return $this->hasOne(PagesCategory::className(), ['id' => 'category_id']);
+    }
+
+    /**
+     * @param $id
+     *
+     * @return mixed|string
+     */
+    public function getSitemapStatusById($id)
+    {
+        return isset(self::getSitemapStatusList()[$id]) ? self::getSitemapStatusList()[$id] : '';
+    }
+
+    /**
+     * @return array
+     */
+    public static function getSitemapStatusList()
+    {
+        return [
+            self::SITEMAP_FALSE => Yii::t('fx', 'not-in-sitemap'),
+            self::SITEMAP_TRUE  => Yii::t('fx', 'in-sitemap'),
+        ];
     }
 }

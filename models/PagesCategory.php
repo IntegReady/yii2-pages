@@ -9,11 +9,20 @@ use Yii;
  *
  * @property integer $id
  * @property string $name
+ * @property string $description
  *
  * @property Pages[] $pages
  */
 class PagesCategory extends \yii\db\ActiveRecord
 {
+    const STATICS  = 1;
+    const NEWS     = 2;
+    const ANALYTIC = 3;
+
+    const STATICS_LABEL  = 'static';
+    const NEWS_LABEL     = 'news';
+    const ANALYTIC_LABEL = 'analytics';
+
     /**
      * @inheritdoc
      */
@@ -23,12 +32,34 @@ class PagesCategory extends \yii\db\ActiveRecord
     }
 
     /**
+     * @param $id
+     *
+     * @return mixed|string
+     */
+    public static function getCategoryById($id)
+    {
+        return isset(self::getCategoryList()[$id]) ? self::getCategoryList()[$id] : '';
+    }
+
+    /**
+     * @return array
+     */
+    public static function getCategoryList()
+    {
+        return [
+            self::STATICS  => Yii::t('fx', self::STATICS_LABEL),
+            self::NEWS     => Yii::t('fx', self::NEWS_LABEL),
+            self::ANALYTIC => Yii::t('fx', self::ANALYTIC_LABEL),
+        ];
+    }
+
+    /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['name'], 'string', 'max' => 50],
+            [['name', 'description'], 'string', 'max' => 50],
             [['name'], 'unique'],
         ];
     }
@@ -39,8 +70,9 @@ class PagesCategory extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id'   => 'ID',
-            'name' => 'Name',
+            'id'          => Yii::t('fx', 'ID'),
+            'name'        => Yii::t('fx', 'Category name'),
+            'description' => Yii::t('fx', 'Category description'),
         ];
     }
 

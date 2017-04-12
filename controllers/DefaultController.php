@@ -5,6 +5,7 @@ namespace common\modules\controllers;
 use common\modules\models\Pages;
 use common\modules\models\PagesCategory;
 use Yii;
+use yii\data\ActiveDataProvider;
 use yii\data\Pagination;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -22,28 +23,39 @@ class DefaultController extends Controller
      * @throws NotFoundHttpException
      */
 
-    public function actionIndex($category = 'static', $alias = 'contest_traders')
+    public function actionIndex($category = null, $alias = null)
     {
-        // Try to find id category by category name
-        $category = PagesCategory::findOne(['name' => $category]);
-        if (!empty($category)) {
-            // Try to find page by alias and category_id
-            $page = Pages::findOne(['alias' => $alias, 'category_id' => $category->id, 'language' => Yii::$app->language]);
+        $model_cat = PagesCategory::findOne(['name' => $category]);
+        if (!empty($model_cat) && !empty($alias)) {
+            $page = Pages::findOne(['alias' => $alias, 'category_id' => $model_cat->id, 'language' => Yii::$app->language]);
             if (!empty($page)) {
-                return $this->render('view', ['model' => $page]);
-            } else {
-                $query      = Pages::getAllByCategoryQuery($category->id);
-                $countQuery = clone $query;
-                $pages      = new Pagination(['totalCount' => $countQuery->count(), 'defaultPageSize' => Pages::DEFAULT_PAGE_SIZE]);
-                $models     = $query->offset($pages->offset)
-                    ->limit($pages->limit)
-                    ->all();
-
-                return $this->render('list', [
-                    'models' => $models,
-                    'pages'  => $pages,
-                ]);
+                return $this->render('page_view', ['model' => $page, 'category_name' => $model_cat->name, 'category_name' => $model_cat->name]);
             }
+        } elseif (!empty($model_cat) && empty($alias)) {
+            $query      = Pages::getAllByCategoryQuery($model_cat->id);
+            $countQuery = clone $query;
+            $pages      = new Pagination(['totalCount' => $countQuery->count(), 'defaultPageSize' => Pages::DEFAULT_PAGE_SIZE]);
+            $models     = $query->offset($pages->offset)
+                ->limit($pages->limit)
+                ->all();
+
+            return $this->render('page_list', [
+                'models'        => $models,
+                'pages'         => $pages,
+                'category_name' => $model_cat->name,
+            ]);
+        } elseif (empty($model_cat) && empty($alias)) {
+            $query      = PagesCategory::find();
+            $countQuery = clone $query;
+            $pages      = new Pagination(['totalCount' => $countQuery->count(), 'defaultPageSize' => Pages::DEFAULT_PAGE_SIZE]);
+            $models     = $query->offset($pages->offset)
+                ->limit($pages->limit)
+                ->all();
+
+            return $this->render('index', [
+                'models' => $models,
+                'pages'  => $pages,
+            ]);
         } else {
             throw new NotFoundHttpException(Yii::t('fx-exception', 'fx-page-not-found'));
         }
