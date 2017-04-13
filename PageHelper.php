@@ -8,6 +8,11 @@ class PageHelper
     const ALIAS_LIMIT           = 53;
     const PREVIEW_DELIMITER     = '|';
 
+    const DATETIME_FORMAT_RU                       = 'Y-m-d H:i:s';
+    const DATETIME_FORMAT_ICU_RU                   = 'yyyy-mm-dd hh:ii:ss';
+    const DATETIME_FORMAT_RU_MASK                  = 'ГГГГ-ММ-ДД ЧЧ:ММ';
+    const DATETIME_FORMAT_PUBLICATIONS_PLACEHOLDER = 'YYYY-MM-DD hh:mm';
+
     /**
      * @param string $string
      * @param int $length

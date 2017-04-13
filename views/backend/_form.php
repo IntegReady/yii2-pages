@@ -2,6 +2,9 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use dosamigos\ckeditor\CKEditor;
+use kartik\datetime\DateTimePicker;
+use muravshchyk\pages\PageHelper;
 
 /* @var $this yii\web\View */
 /* @var $model muravshchyk\pages\models\Pages */
@@ -20,17 +23,46 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'text')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'language')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'language')->dropDownList(PageHelper::getLanguagesList()) ?>
 
-    <?= $form->field($model, 'date_created')->textInput() ?>
+    <?=
+    $form->field($model, 'date_created')->widget(DateTimePicker::className(), [
+        'options'       => ['placeholder' => PageHelper::DATETIME_FORMAT_PUBLICATIONS_PLACEHOLDER,],
+        'pluginOptions' => [
+            'language'  => 'en',
+            'format'    => PageHelper::DATETIME_FORMAT_ICU_RU,
+            'autoclose' => true,
+        ],
+    ]) ?>
 
-    <?= $form->field($model, 'date_updated')->textInput() ?>
+    <?= $form->field($model, 'date_updated')->widget(DateTimePicker::className(), [
+        'options'       => ['placeholder' => PageHelper::DATETIME_FORMAT_PUBLICATIONS_PLACEHOLDER,],
+        'pluginOptions' => [
+            'language'  => 'en',
+            'format'    => PageHelper::DATETIME_FORMAT_ICU_RU,
+            'autoclose' => true,
+        ],
+    ]) ?>
 
-    <?= $form->field($model, 'date_published_in')->textInput() ?>
+    <?= $form->field($model, 'date_published_in')->widget(DateTimePicker::className(), [
+        'options'       => ['placeholder' => PageHelper::DATETIME_FORMAT_PUBLICATIONS_PLACEHOLDER,],
+        'pluginOptions' => [
+            'language'  => 'en',
+            'format'    => PageHelper::DATETIME_FORMAT_ICU_RU,
+            'autoclose' => true,
+        ],
+    ]) ?>
 
-    <?= $form->field($model, 'date_published_out')->textInput() ?>
+    <?= $form->field($model, 'date_published_out')->widget(DateTimePicker::className(), [
+        'options'       => ['placeholder' => PageHelper::DATETIME_FORMAT_PUBLICATIONS_PLACEHOLDER,],
+        'pluginOptions' => [
+            'language'  => 'en',
+            'format'    => PageHelper::DATETIME_FORMAT_ICU_RU,
+            'autoclose' => true,
+        ],
+    ]) ?>
 
-    <?= $form->field($model, 'sitemap')->textInput() ?>
+    <?= $form->field($model, 'sitemap')->checkbox(); ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
