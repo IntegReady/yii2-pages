@@ -1,4 +1,4 @@
-Установка модуля muravshchyk/pages
+Установка модуля muravshchyk/pages:
 
 1) Добавить в composer.json
 
@@ -24,5 +24,15 @@
         ],
     ],
 
-4)
+4) Добавить в urlFrontendManager и urlMyManager:
+
+    'rules' => [
+        'pages'                             => 'pages/default/index',
+        'pages/<category:\w+>'              => 'pages/default/index',
+        'pages/<category:\w+>/<alias:\w+>'  => 'pages/default/index',
+        ]
+5) Добавить urlBackendManager:
+    'rules' => [
+        'pages'                             => 'pages/default/index',
+        ]
 
