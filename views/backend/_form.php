@@ -5,6 +5,7 @@ use yii\widgets\ActiveForm;
 use dosamigos\ckeditor\CKEditor;
 use kartik\datetime\DateTimePicker;
 use muravshchyk\pages\PageHelper;
+use muravshchyk\pages\models\PagesCategory;
 
 /* @var $this yii\web\View */
 /* @var $model muravshchyk\pages\models\Pages */
@@ -19,7 +20,7 @@ use muravshchyk\pages\PageHelper;
 
     <?= $form->field($model, 'alias')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'category_id')->textInput() ?>
+    <?= $form->field($model, 'category_id')->textInput()->dropDownList(PagesCategory::getCategoryList()) ?>
 
     <?= $form->field($model, 'text')->widget(CKEditor::className(), [
         'options'       => [
