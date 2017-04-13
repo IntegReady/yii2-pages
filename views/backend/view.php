@@ -9,7 +9,7 @@ use muravshchyk\pages\models\PagesCategory;
 /* @var $model muravshchyk\pages\models\Pages */
 
 $this->title                   = $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Pages', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Страницы', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="pages-view">
@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Delete', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data'  => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => 'Вы уверены что хотите удалить эту станицу?',
                 'method'  => 'post',
             ],
         ]) ?>

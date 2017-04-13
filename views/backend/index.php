@@ -10,7 +10,7 @@ use yii\helpers\Html;
 /* @var $searchModel muravshchyk\pages\models\PagesSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title                   = 'Pages';
+$this->title                   = 'Страницы';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="pages-index">
@@ -43,7 +43,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value'     => 'language',
                 'filter'    => Html::activeDropDownList($searchModel, 'language', PageHelper::getLanguagesList(), ['class' => 'form-control', 'prompt' => Yii::t('fx', 'trans-lang-choice')]),
             ],
-            'date_created',
+            //'date_created',
             // 'date_updated',
             // 'date_published_in',
             // 'date_published_out',
