@@ -1,6 +1,6 @@
 <?php
 
-namespace common\modules;
+namespace muravshchyk\pages;
 
 /**
  * pages module definition class
@@ -10,7 +10,7 @@ class Pages extends \yii\base\Module
     /**
      * @inheritdoc
      */
-    public $controllerNamespace = 'common\modules\controllers';
+    public $controllerNamespace = 'muravshchyk\pages\controllers';
 
     /**
      * @inheritdoc

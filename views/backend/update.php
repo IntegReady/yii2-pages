@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model common\modules\models\Pages */
+/* @var $model muravshchyk\pages\models\Pages */
 
 $this->title                   = 'Update Pages: ' . $model->title;
 $this->params['breadcrumbs'][] = ['label' => 'Pages', 'url' => ['index']];

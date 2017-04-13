@@ -1,7 +1,7 @@
 <?php
 
-use common\modules\models\PagesCategory;
-use common\modules\PageHelper;
+use muravshchyk\pages\models\PagesCategory;
+use muravshchyk\pages\PageHelper;
 use yii\helpers\Url;
 use yii\widgets\Breadcrumbs;
 use yii\widgets\LinkPager;

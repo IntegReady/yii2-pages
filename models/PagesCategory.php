@@ -1,6 +1,6 @@
 <?php
 
-namespace common\modules\models;
+namespace muravshchyk\pages\models;
 
 use Yii;
 

@@ -1,9 +1,9 @@
 <?php
 
-namespace common\modules\controllers;
+namespace muravshchyk\pages\controllers;
 
-use common\modules\models\Pages;
-use common\modules\models\PagesCategory;
+use muravshchyk\pages\models\Pages;
+use muravshchyk\pages\models\PagesCategory;
 use Yii;
 use yii\data\ActiveDataProvider;
 use yii\data\Pagination;

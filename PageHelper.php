@@ -1,6 +1,6 @@
 <?php
 
-namespace common\modules;
+namespace muravshchyk\pages;
 
 class PageHelper
 {

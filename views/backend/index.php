@@ -1,13 +1,13 @@
 <?php
 
-use common\modules\models\Pages;
-use common\modules\models\PagesCategory;
-use common\modules\PageHelper;
+use muravshchyk\pages\models\Pages;
+use muravshchyk\pages\models\PagesCategory;
+use muravshchyk\pages\PageHelper;
 use yii\grid\GridView;
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $searchModel common\modules\models\PagesSearch */
+/* @var $searchModel muravshchyk\pages\models\PagesSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title                   = 'Pages';

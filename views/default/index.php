@@ -1,6 +1,6 @@
 <?php
 
-use common\modules\PageHelper;
+use muravshchyk\pages\PageHelper;
 use yii\helpers\Url;
 use yii\widgets\Breadcrumbs;
 use yii\widgets\LinkPager;
