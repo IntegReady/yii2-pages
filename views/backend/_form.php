@@ -21,7 +21,16 @@ use muravshchyk\pages\PageHelper;
 
     <?= $form->field($model, 'category_id')->textInput() ?>
 
-    <?= $form->field($model, 'text')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'text')->widget(CKEditor::className(), [
+        'options'       => [
+            'rows' => 6,
+        ],
+        'clientOptions' => [
+            'contentsCss'    => Yii::$app->urlFrontendManager->createAbsoluteUrl(['/css/bootstrap.css']),
+            'allowedContent' => true,
+        ],
+        'preset'        => 'full',
+    ]) ?>
 
     <?= $form->field($model, 'language')->dropDownList(PageHelper::getLanguagesList()) ?>
 
