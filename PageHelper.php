@@ -41,6 +41,9 @@ class PageHelper
         return [
             'ru-RU' => 'ru-RU',
             'en-US' => 'en-US',
+            'fr-FR' => 'fr-FR',
+            'zh-CN' => 'zh-CN',
+            'sk-SK' => 'sk-SK',
         ];
     }
 }

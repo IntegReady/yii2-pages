@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use muravshchyk\pages\models\Pages;
+use muravshchyk\pages\models\PagesCategory;
 
 /* @var $this yii\web\View */
 /* @var $model muravshchyk\pages\models\Pages */
@@ -31,14 +33,24 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'title',
             'alias',
-            'category_id',
+            [
+                'attribute' => 'category_id',
+                'value'     => function ($data) {
+                    return PagesCategory::getCategoryById($data->category_id);
+                },
+            ],
             'text:ntext',
             'language',
             'date_created',
             'date_updated',
             'date_published_in',
             'date_published_out',
-            'sitemap',
+            [
+                'attribute' => 'sitemap',
+                'value'     => function ($data) {
+                    return Pages::getSitemapStatusById($data->sitemap);
+                },
+            ],
         ],
     ]) ?>
 

@@ -10,7 +10,9 @@
     ],
 
 "require": {
-         "muravshchyk/yii2-pages": "dev-master"
+              "yiisoft/yii2": "~2.0.7",
+              "kartik-v/yii2-grid": "*",
+              "integready/yii2-datepicker-widget": "*"
         }
 
 
