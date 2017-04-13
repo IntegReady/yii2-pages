@@ -20,7 +20,7 @@
 
     'modules' => [
         'pages' => [
-            'class' => 'muravshchyk\yii2pages\Pages',
+            'class' => 'muravshchyk\pages\Pages',
         ],
     ],
 
