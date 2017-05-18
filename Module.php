@@ -5,13 +5,13 @@ namespace muravshchyk\pages;
 /**
  * pages module definition class
  */
-class Pages extends \yii\base\Module
+class Module extends \yii\base\Module
 {
     /**
      * @inheritdoc
      */
     // Контроллеры модуля заблокированы!!!
-    public $controllerNamespace = '';
+    public $controllerNamespace = 'muravshchyk\pages\controllers';
 
     // Разрешенные языки (по умолчанию только en-US
     public $allowedLanguages = [];
