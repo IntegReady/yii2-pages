@@ -2,6 +2,8 @@
 
 namespace muravshchyk\pages;
 
+use Yii;
+
 class PageHelper
 {
     const PREVIEW_SNIPPET_LIMIT = 160;
