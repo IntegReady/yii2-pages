@@ -10,10 +10,12 @@ class Pages extends \yii\base\Module
     /**
      * @inheritdoc
      */
-    public $controllerNamespace = 'muravshchyk\pages\controllers';
+    // Контроллеры модуля заблокированы!!!
+    public $controllerNamespace = '';
 
     // Разрешенные языки (по умолчанию только en-US
     public $allowedLanguages = [];
+
 
     /**
      * @inheritdoc
