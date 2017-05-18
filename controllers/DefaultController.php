@@ -10,7 +10,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 
 /**
- * BackendController implements the CRUD actions for Pages model.
+ * Backend DefaultController implements the CRUD actions for Pages model.
  */
 class DefaultController extends Controller
 {

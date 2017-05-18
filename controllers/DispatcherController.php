@@ -11,7 +11,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 
 /**
- * Default controller for the `pages` module
+ * Dispatcher controller for the `pages` module
  */
 class DispatcherController extends Controller
 {
