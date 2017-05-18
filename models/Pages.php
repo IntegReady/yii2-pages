@@ -49,7 +49,7 @@ class Pages extends \yii\db\ActiveRecord
     {
         return static::find()
             ->where(['language' => Yii::$app->language])
-            ->where(['category_id' => $category_id])
+            ->andWhere(['category_id' => $category_id])
             ->andWhere('date_published_in < now() and (date_published_out > now() or date_published_out is null)')
             ->orderBy('date_published_in DESC');
     }
