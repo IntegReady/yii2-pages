@@ -23,6 +23,7 @@
     'modules' => [
         'pages' => [
             'class' => 'muravshchyk\pages\Pages',
+            'allowedLanguages' => [.....]  (список используемых языков)
         ],
     ],
 

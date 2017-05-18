@@ -1,41 +1,61 @@
 <?php
 
+use muravshchyk\pages\models\Pages;
+use muravshchyk\pages\models\PagesCategory;
 use muravshchyk\pages\PageHelper;
-use yii\helpers\Url;
-use yii\widgets\Breadcrumbs;
-use yii\widgets\LinkPager;
+use yii\grid\GridView;
+use yii\helpers\Html;
 
-/**
- * @var common\models\Analytics[] $models
- * @var array|mixed $pages
- */
+/* @var $this yii\web\View */
+/* @var $searchModel muravshchyk\pages\models\PagesSearch */
+/* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title                   = Yii::t('fx', 'Страницы');
+$this->title                   = 'Страницы';
 $this->params['breadcrumbs'][] = $this->title;
-
 ?>
-<div class="row">
-    <div class="col-md-12 col-xs-12">
-        <div class="news-list row">
-            <div class="col-xs-12">
-                <?php foreach ($models as $model) : ?>
-                    <div class="news-item-new">
-                        <div class="news-item__title">
-                            <a href="<?php echo Url::to([$model->name . '/']); ?>">
-                                <?php echo Yii::t('fx', $model->name); ?>
-                            </a>
-                        </div>
-                        <div class="news-item__teaser">
-                            <p><?php echo PageHelper::makePreviewSnippet($model->description); ?></p>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
-            </div>
-        </div>
+<div class="pages-index">
 
-        <?php
-        echo LinkPager::widget([
-            'pagination' => $pages,
-        ]); ?>
-    </div>
+    <h1><?= Html::encode($this->title) ?></h1>
+    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+
+    <p>
+        <?= Html::a('Create Pages', ['create'], ['class' => 'btn btn-success']) ?>
+    </p>
+    <?= GridView::widget([
+        'dataProvider' => $dataProvider,
+        'filterModel'  => $searchModel,
+        'columns'      => [
+            ['class' => 'yii\grid\SerialColumn'],
+
+            //'id',
+            'title',
+            'alias',
+            [
+                'attribute' => 'category_id',
+                'value'     => function ($data) {
+                    return PagesCategory::getCategoryById($data->category_id);
+                },
+                'filter'    => Html::activeDropDownList($searchModel, 'category_id', PagesCategory::getCategoryList(), ['class' => 'form-control', 'prompt' => Yii::t('fx', '--Выберите категорию--')]),
+            ],
+            // 'text:ntext',
+            [
+                'attribute' => 'language',
+                'value'     => 'language',
+                'filter'    => Html::activeDropDownList($searchModel, 'language', PageHelper::getLanguagesList(), ['class' => 'form-control', 'prompt' => Yii::t('fx', 'trans-lang-choice')]),
+            ],
+            //'date_created',
+            // 'date_updated',
+            // 'date_published_in',
+            // 'date_published_out',
+            [
+                'attribute' => 'sitemap',
+                'value'     => function ($data) {
+                    return Pages::getSitemapStatusById($data->sitemap);
+                },
+                'filter'    => Html::activeDropDownList($searchModel, 'sitemap', Pages::getSitemapStatusList(), ['class' => 'form-control', 'prompt' => Yii::t('fx', '--Выберите статус--')]),
+            ],
+
+            ['class' => 'yii\grid\ActionColumn'],
+        ],
+    ]); ?>
 </div>

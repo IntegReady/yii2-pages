@@ -12,6 +12,9 @@ class Pages extends \yii\base\Module
      */
     public $controllerNamespace = 'muravshchyk\pages\controllers';
 
+    // Разрешенные языки (по умолчанию только en-US
+    public $allowedLanguages = [];
+
     /**
      * @inheritdoc
      */
