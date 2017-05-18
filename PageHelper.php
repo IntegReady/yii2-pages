@@ -34,16 +34,18 @@ class PageHelper
     }
 
     /**
+     * Получение всех возможныж языков (в соотв. с настройками модуля)
      * @return array
      */
     public static function getLanguagesList()
     {
-        return [
-            'ru-RU' => 'ru-RU',
-            'en-US' => 'en-US',
-            'fr-FR' => 'fr-FR',
-            'zh-CN' => 'zh-CN',
-            'sk-SK' => 'sk-SK',
-        ];
+        $module     = Yii::$app->getModule('pages');
+        $aLanguages = $module->allowedLanguages;
+        foreach ($aLanguages as $key => $language) {
+            $aLanguages[$language] = $language;
+            unset($aLanguages[$key]);
+        }
+
+        return $aLanguages;
     }
 }
