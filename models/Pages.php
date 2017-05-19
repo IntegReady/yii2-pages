@@ -3,6 +3,7 @@
 namespace muravshchyk\pages\models;
 
 use Yii;
+use yii\db\Query;
 
 /**
  * This is the model class for table "pages".
@@ -43,12 +44,12 @@ class Pages extends \yii\db\ActiveRecord
     /**
      * @param $category_id
      *
-     * @return $this
+     * @return Query
      */
-    public static function getAllByCategoryQuery($category_id)
+    public static function getAllByCategoryQuery($category_id, $lang)
     {
         return static::find()
-            ->where(['language' => Yii::$app->language])
+            ->where(['language' => $lang])
             ->andWhere(['category_id' => $category_id])
             ->andWhere('date_published_in < now() and (date_published_out > now() or date_published_out is null)')
             ->orderBy('date_published_in DESC');
