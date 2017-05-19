@@ -5,6 +5,7 @@ namespace muravshchyk\pages\components;
 use Yii;
 use muravshchyk\pages\models\Pages;
 use muravshchyk\pages\models\PagesCategory;
+use yii\db\Query;
 
 /**
  * Dispatcher of the Pages Module
@@ -17,7 +18,7 @@ class PageDispatcher
      * @param $alias
      * @param null $lang
      *
-     * @return null|static
+     * @return null|Pages
      */
     public static function getPageHTML($category, $alias, $lang = null)
     {
@@ -36,20 +37,24 @@ class PageDispatcher
     }
 
     /**
-     * Get all pages by Category name and Language
+     * Get all pages query by Category name and Language
      * @param $category
      * @param null $lang
      *
-     * @return null|static[]
+     * @return Query
      */
-    public static function getPagesOfCategory($category, $lang = null)
+    public static function getPagesOfCategoryQuery($category, $lang = null)
     {
         $result = null;
         // Если язык не задан - принимаем текущий язык по умолчанию
         $language  = $lang ? $lang : Yii::$app->language;
         $model_cat = PagesCategory::findOne(['name' => $category]);
         if (!empty($model_cat)) {
-            $result = Pages::findAll(['category_id' => $model_cat->id, 'language' => $language]);
+            $query = Pages::getAllByCategoryQuery($model_cat->id, $language);
+            $data = $query->all();
+            if(!empty($data)){
+                $result = $query;
+            }
         }
 
         return $result;
