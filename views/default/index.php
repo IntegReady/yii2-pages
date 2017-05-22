@@ -10,7 +10,7 @@ use yii\helpers\Html;
 /* @var $searchModel muravshchyk\pages\models\PagesSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title                   = 'Страницы';
+$this->title                   = Yii::t('pgs', 'Pages');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="pages-index">
@@ -20,6 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a('Create Pages', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Edit Categories', ['categories'], ['class' => 'btn btn-warning']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,

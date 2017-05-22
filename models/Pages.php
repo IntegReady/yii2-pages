@@ -79,17 +79,17 @@ class Pages extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id'                 => Yii::t('fx', 'ID'),
-            'title'              => Yii::t('fx', 'Title'),
-            'alias'              => Yii::t('fx', 'Alias'),
-            'category_id'        => Yii::t('fx', 'Category ID'),
-            'text'               => Yii::t('fx', 'Text'),
-            'language'           => Yii::t('fx', 'Language'),
-            'date_created'       => Yii::t('fx', 'Date Created'),
-            'date_updated'       => Yii::t('fx', 'Date Updated'),
-            'date_published_in'  => Yii::t('fx', 'Date Published In'),
-            'date_published_out' => Yii::t('fx', 'Date Published Out'),
-            'sitemap'            => Yii::t('fx', 'Sitemap'),
+            'id'                 => Yii::t('pgs', 'ID'),
+            'title'              => Yii::t('pgs', 'Title'),
+            'alias'              => Yii::t('pgs', 'Alias'),
+            'category_id'        => Yii::t('pgs', 'Category ID'),
+            'text'               => Yii::t('pgs', 'Text'),
+            'language'           => Yii::t('pgs', 'Language'),
+            'date_created'       => Yii::t('pgs', 'Date Created'),
+            'date_updated'       => Yii::t('pgs', 'Date Updated'),
+            'date_published_in'  => Yii::t('pgs', 'Date Published In'),
+            'date_published_out' => Yii::t('pgs', 'Date Published Out'),
+            'sitemap'            => Yii::t('pgs', 'Sitemap'),
         ];
     }
 

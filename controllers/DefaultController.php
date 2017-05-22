@@ -2,6 +2,7 @@
 
 namespace muravshchyk\pages\controllers;
 
+use muravshchyk\pages\models\CategoriesSearch;
 use muravshchyk\pages\models\Pages;
 use muravshchyk\pages\models\PagesSearch;
 use Yii;
@@ -128,5 +129,16 @@ class DefaultController extends Controller
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
+    }
+
+    public function actionCategories()
+    {
+        $searchModel  = new CategoriesSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('c_index', [
+            'searchModel'  => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
     }
 }
