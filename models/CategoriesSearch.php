@@ -9,7 +9,7 @@ use yii\data\ActiveDataProvider;
 /**
  * PagesSearch represents the model behind the search form about `muravshchyk\pages\models\Pages`.
  */
-class CategoriesSearch extends Pages
+class CategoriesSearch extends Categories
 {
     /**
      * @inheritdoc

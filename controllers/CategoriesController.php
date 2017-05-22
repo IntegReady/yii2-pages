@@ -2,8 +2,8 @@
 
 namespace muravshchyk\pages\controllers;
 
-use muravshchyk\pages\models\Pages;
-use muravshchyk\pages\models\PagesSearch;
+use muravshchyk\pages\models\Categories;
+use muravshchyk\pages\models\CategoriesSearch;
 use Yii;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
@@ -12,7 +12,7 @@ use yii\web\NotFoundHttpException;
 /**
  * Backend DefaultController implements the CRUD actions for Pages model.
  */
-class DefaultController extends Controller
+class CategoriesController extends Controller
 {
     /**
      * @inheritdoc
@@ -30,12 +30,12 @@ class DefaultController extends Controller
     }
 
     /**
-     * Lists all Pages models.
+     * Lists all Categories models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel  = new PagesSearch();
+        $searchModel  = new CategoriesSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * Displays a single Pages model.
+     * Displays a single Categories model.
      *
      * @param integer $id
      *
@@ -59,17 +59,17 @@ class DefaultController extends Controller
     }
 
     /**
-     * Finds the Pages model based on its primary key value.
+     * Finds the Categories model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      *
      * @param integer $id
      *
-     * @return Pages the loaded model
+     * @return Categories the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Pages::findOne($id)) !== null) {
+        if (($model = Categories::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
@@ -77,13 +77,13 @@ class DefaultController extends Controller
     }
 
     /**
-     * Creates a new Pages model.
+     * Creates a new Categories model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Pages();
+        $model = new Categories();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -95,7 +95,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * Updates an existing Pages model.
+     * Updates an existing Categories model.
      * If update is successful, the browser will be redirected to the 'view' page.
      *
      * @param integer $id
@@ -116,7 +116,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * Deletes an existing Pages model.
+     * Deletes an existing Categories model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      *
      * @param integer $id

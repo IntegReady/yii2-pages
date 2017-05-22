@@ -19,7 +19,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Category', ['category-create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Edit Pages', ['/'], ['class' => 'btn btn-warning']) ?>
+        <?= Html::a('Create Category', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
