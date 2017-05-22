@@ -38,8 +38,8 @@ class Categories extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'text'], 'required'],
-            [['text'], 'string'],
+            [['name'], 'required'],
+            [['description'], 'string'],
         ];
     }
 

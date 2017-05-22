@@ -8,7 +8,7 @@ use muravshchyk\pages\models\PagesCategory;
 /* @var $this yii\web\View */
 /* @var $model muravshchyk\pages\models\Categories */
 
-$this->title                   = $model->title;
+$this->title                   = $model->name;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('pgs', 'Categories'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

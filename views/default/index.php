@@ -20,7 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a('Create Pages', ['create'], ['class' => 'btn btn-success']) ?>
-        <?= Html::a('Edit Categories', ['/categories'], ['class' => 'btn btn-warning']) ?>
+        <?= Html::a('Edit Categories', \yii\helpers\Url::toRoute('categories/index'), ['class' => 'btn btn-warning']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,

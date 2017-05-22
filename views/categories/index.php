@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Edit Pages', ['/'], ['class' => 'btn btn-warning']) ?>
+        <?= Html::a('Edit Pages', \yii\helpers\Url::toRoute('default/index'), ['class' => 'btn btn-warning']) ?>
         <?= Html::a('Create Category', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
@@ -31,6 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'name',
             'description',
+            ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
 </div>
