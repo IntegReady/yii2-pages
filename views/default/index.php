@@ -10,7 +10,7 @@ use yii\helpers\Html;
 /* @var $searchModel muravshchyk\pages\models\PagesSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title                   = 'Страницы';
+$this->title                   = Yii::t('pgs', 'Pages');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="pages-index">
