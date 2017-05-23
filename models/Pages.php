@@ -38,7 +38,7 @@ class Pages extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'pages';
+        return '{{%pages}}';
     }
 
     /**
