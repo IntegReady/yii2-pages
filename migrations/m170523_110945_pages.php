@@ -25,10 +25,10 @@ class m170523_110945_pages extends Migration
                 'category_id'        => $this->integer(11)->notNull(),
                 'text'               => $this->text()->notNull(),
                 'language'           => $this->string(32)->notNull()->defaultValue('en-US'),
-                'date_created'       => $this->timestamp(),
+                'date_created'       => 'timestamp on update current_timestamp',
                 'date_updated'       => $this->timestamp(),
                 'date_published_in'  => $this->timestamp(),
-                'date_published_out' => $this->timestamp(),
+                'date_published_out' => $this->timestamp()->defaultValue(NULL),
                 'sitemap'            => 'tinyint(4) NOT NULL DEFAULT 1',
             ], $tableOptions);
         }

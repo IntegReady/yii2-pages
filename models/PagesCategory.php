@@ -47,9 +47,9 @@ class PagesCategory extends \yii\db\ActiveRecord
     public static function getCategoryList()
     {
         return [
-            self::STATICS  => Yii::t('fx', self::STATICS_LABEL),
-            self::NEWS     => Yii::t('fx', self::NEWS_LABEL),
-            self::ANALYTIC => Yii::t('fx', self::ANALYTIC_LABEL),
+            self::STATICS  => Yii::t('pgs', self::STATICS_LABEL),
+            self::NEWS     => Yii::t('pgs', self::NEWS_LABEL),
+            self::ANALYTIC => Yii::t('pgs', self::ANALYTIC_LABEL),
         ];
     }
 
@@ -70,9 +70,9 @@ class PagesCategory extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id'          => Yii::t('fx', 'ID'),
-            'name'        => Yii::t('fx', 'Category name'),
-            'description' => Yii::t('fx', 'Category description'),
+            'id'          => Yii::t('pgs', 'ID'),
+            'name'        => Yii::t('pgs', 'Category name'),
+            'description' => Yii::t('pgs', 'Category description'),
         ];
     }
 

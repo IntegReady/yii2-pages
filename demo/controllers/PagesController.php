@@ -74,6 +74,6 @@ class PagesController extends Controller
 
         // Если не нашли ничего
         // Отдаём 404
-        throw new NotFoundHttpException(Yii::t('fx-exception', 'fx-page-not-found'));
+        throw new NotFoundHttpException(Yii::t('pgs', 'fx-page-not-found'));
     }
 }

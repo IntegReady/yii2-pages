@@ -15,7 +15,8 @@ Module Installation FAQ for muravshchyk/pages:
                 ],
     ],
 
-    "php yii migrate/up" will build all needed tables for the module.
+    php yii migrate --migrationPath=@vendor/muravshchyk/yii2-pages/migrations
+    will build all needed tables for the module.
 
     After all, you can access backend page using '/pages' link
 

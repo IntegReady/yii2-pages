@@ -117,8 +117,8 @@ class Pages extends \yii\db\ActiveRecord
     public static function getSitemapStatusList()
     {
         return [
-            self::SITEMAP_FALSE => Yii::t('fx', 'not-in-sitemap'),
-            self::SITEMAP_TRUE  => Yii::t('fx', 'in-sitemap'),
+            self::SITEMAP_FALSE => Yii::t('pgs', 'not-in-sitemap'),
+            self::SITEMAP_TRUE  => Yii::t('pgs', 'in-sitemap'),
         ];
     }
 }

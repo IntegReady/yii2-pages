@@ -5,7 +5,7 @@ use yii\widgets\Breadcrumbs;
 $this->title = $model->title;
 
 $this->params['breadcrumbs'][] = [
-    'label' => Yii::t('fx', $category_name),
+    'label' => Yii::t('pgs', $category_name),
     'url'   => '/pages/' . $category_name,
 ];
 $this->params['breadcrumbs'][] = $this->title;
