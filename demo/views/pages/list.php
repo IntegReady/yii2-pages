@@ -9,7 +9,7 @@ use muravshchyk\pages\PageHelper;
  * @var string $category_name
  */
 
-$this->title                   = Yii::t('fx', $category_name);
+$this->title                   = Yii::t('pgs', $category_name);
 $this->params['breadcrumbs'][] = $this->title;
 $this->params['category'] = $category_name;
 ?>
