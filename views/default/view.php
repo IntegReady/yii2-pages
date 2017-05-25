@@ -9,7 +9,7 @@ use integready\pages\models\PagesCategory;
 /* @var $model integready\pages\models\Pages */
 
 $this->title                   = $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Страницы', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('pgs', 'Pages'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="pages-view">
@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Delete', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data'  => [
-                'confirm' => 'Вы уверены что хотите удалить эту станицу?',
+                'confirm' => Yii::t('pgs', 'Confirm-delete-page'),
                 'method'  => 'post',
             ],
         ]) ?>

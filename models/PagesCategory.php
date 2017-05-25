@@ -19,9 +19,9 @@ class PagesCategory extends \yii\db\ActiveRecord
     const NEWS     = 2;
     const ANALYTIC = 3;
 
-    const STATICS_LABEL  = 'static';
-    const NEWS_LABEL     = 'news';
-    const ANALYTIC_LABEL = 'analytics';
+    const STATICS_LABEL  = 'Static';
+    const NEWS_LABEL     = 'News';
+    const ANALYTIC_LABEL = 'Analytics';
 
     /**
      * @inheritdoc

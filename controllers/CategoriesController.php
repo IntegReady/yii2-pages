@@ -72,7 +72,7 @@ class CategoriesController extends Controller
         if (($model = Categories::findOne($id)) !== null) {
             return $model;
         } else {
-            throw new NotFoundHttpException('The requested page does not exist.');
+            throw new NotFoundHttpException(Yii::t('pgs', 'Page-not-exist'));
         }
     }
 

@@ -7,7 +7,7 @@ use yii\helpers\Html;
 /* @var $model integready\pages\models\Categories */
 
 $this->title                   = Yii::t('pgs', 'Create Category');
-$this->params['breadcrumbs'][] = ['label' => 'Categories', 'url' => ['categories']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('pgs', 'Create Category'), 'url' => ['categories']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="pages-create">

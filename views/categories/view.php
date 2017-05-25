@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Delete', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data'  => [
-                'confirm' => 'Вы уверены что хотите удалить эту станицу?',
+                'confirm' => Yii::t('pgs', 'Confirm-delete-page'),
                 'method'  => 'post',
             ],
         ]) ?>

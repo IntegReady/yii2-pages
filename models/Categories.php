@@ -51,7 +51,7 @@ class Categories extends \yii\db\ActiveRecord
         return [
             'id'          => Yii::t('pgs', 'ID'),
             'name'        => Yii::t('pgs', 'Name'),
-            'description' => Yii::t('pgs', 'Alias'),
+            'description' => Yii::t('pgs', 'Description'),
         ];
     }
 }

@@ -36,13 +36,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value'     => function ($data) {
                     return PagesCategory::getCategoryById($data->category_id);
                 },
-                'filter'    => Html::activeDropDownList($searchModel, 'category_id', PagesCategory::getCategoryList(), ['class' => 'form-control', 'prompt' => Yii::t('pgs', '--Выберите категорию--')]),
+                'filter'    => Html::activeDropDownList($searchModel, 'category_id', PagesCategory::getCategoryList(), ['class' => 'form-control', 'prompt' => Yii::t('pgs', 'Select-a-category')]),
             ],
             // 'text:ntext',
             [
                 'attribute' => 'language',
                 'value'     => 'language',
-                'filter'    => Html::activeDropDownList($searchModel, 'language', PageHelper::getLanguagesList(), ['class' => 'form-control', 'prompt' => Yii::t('pgs', 'trans-lang-choice')]),
+                'filter'    => Html::activeDropDownList($searchModel, 'language', PageHelper::getLanguagesList(), ['class' => 'form-control', 'prompt' => Yii::t('pgs', 'Trans-lang-choice')]),
             ],
             //'date_created',
             // 'date_updated',

@@ -5,10 +5,10 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model integready\pages\models\Pages */
 
-$this->title                   = 'Обновить страницу: ' . $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Pages', 'url' => ['index']];
+$this->title                   = Yii::t('pgs', 'Update page') . $model->title;
+$this->params['breadcrumbs'][] = ['label' => Yii::t('pgs', 'Pages'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = Yii::t('pgs', 'Update');
 ?>
 <div class="pages-update">
 

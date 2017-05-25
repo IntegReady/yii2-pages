@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model integready\pages\models\Pages */
 
-$this->title                   = 'Создать страницу';
-$this->params['breadcrumbs'][] = ['label' => 'Pages', 'url' => ['index']];
+$this->title                   = Yii::t('pgs', 'Create page');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('pgs', 'Pages'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="pages-create">
