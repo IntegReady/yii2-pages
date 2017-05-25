@@ -24,7 +24,7 @@ Module Installation FAQ for integready/pages:
     After all, you can access backend page using '/pages' link.
 
     ```
-php yii migrate --migrationPath=@vendor/integready/yii2-pages/migrations
+    php yii migrate --migrationPath=@vendor/integready/yii2-pages/migrations
     ```
 
 
