@@ -3,7 +3,7 @@ Module Installation FAQ for integready/pages:
 
 1) Add in config of back-end side of your project (main.php) following strings:
 
-```
+```php
     'modules' => [
         'pages' => [
                     'class'            => 'integready\pages\Module',
@@ -17,14 +17,18 @@ Module Installation FAQ for integready/pages:
     ],
 ```
 
-    php yii migrate --migrationPath=@vendor/integready/yii2-pages/migrations
-    will build all needed tables for the module.
+2) Run migration:
 
-    After all, you can access backend page using '/pages' link
+    Command below will build all needed tables for the module.
+
+    After all, you can access backend page using '/pages' link.
+
+```
+php yii migrate --migrationPath=@vendor/integready/yii2-pages/migrations
+```
 
 
-
-2) In front-end side of your project you can access PageDispatcher component by using following namespace:
+3) In front-end side of your project you can access PageDispatcher component by using following namespace:
 
     use integready\pages\components\PageDispatcher;
 
@@ -40,7 +44,7 @@ Module Installation FAQ for integready/pages:
     c) integready\pages\components\PageDispatcher::getCategoryDbDependencySQL($category)
     This method builds the SQL query usable in DbDependency SQL option of PageCache filter at behaviors in your front-end controller for category:
 
-```
+    ```php
        public function behaviors()
         {
             return [
@@ -59,12 +63,12 @@ Module Installation FAQ for integready/pages:
                 ],
             ];
         }
-```
+    ```
 
     d) integready\pages\components\PageDispatcher::getLastModifiedQuery($category = null, $alias = null, $lang = null)
     This method builds the SQL query usable in lastModified option of HttpCache  filter at behaviors in your front-end controller for category/alias/language:
 
-```
+```php
      public function behaviors()
         {
             return [
@@ -81,4 +85,4 @@ Module Installation FAQ for integready/pages:
         }
 ```
 
-3) Watch the 'demo' folder for more information.
+4) Watch the 'demo' folder for more information.
