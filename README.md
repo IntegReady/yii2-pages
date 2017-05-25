@@ -60,6 +60,7 @@ Module Installation FAQ for integready/pages:
     d) integready\pages\components\PageDispatcher::getLastModifiedQuery($category = null, $alias = null, $lang = null)
     This method builds the SQL query usable in lastModified option of HttpCache  filter at behaviors in your front-end controller for category/alias/language:
 
+
      public function behaviors()
         {
             return [
@@ -68,7 +69,6 @@ Module Installation FAQ for integready/pages:
                     'lastModified'       => function () {
                         $category = 'news';
                         $alias    = Yii::$app->request->get('alias');
-
                         return PageDispatcher::getLastModifiedQuery($category, $alias);
                     },
                     'cacheControlHeader' => 'public, max-age=600',
