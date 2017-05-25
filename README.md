@@ -3,7 +3,7 @@ Module Installation FAQ for integready/pages:
 
 1) Add in config of back-end side of your project (main.php) following strings:
 
-```php
+    ```php
     'modules' => [
         'pages' => [
                     'class'            => 'integready\pages\Module',
@@ -15,7 +15,7 @@ Module Installation FAQ for integready/pages:
                     ],
                 ],
     ],
-```
+    ```
 
 2) Run migration:
 
@@ -23,9 +23,9 @@ Module Installation FAQ for integready/pages:
 
     After all, you can access backend page using '/pages' link.
 
-```
+    ```
 php yii migrate --migrationPath=@vendor/integready/yii2-pages/migrations
-```
+    ```
 
 
 3) In front-end side of your project you can access PageDispatcher component by using following namespace:
@@ -68,7 +68,7 @@ php yii migrate --migrationPath=@vendor/integready/yii2-pages/migrations
     d) integready\pages\components\PageDispatcher::getLastModifiedQuery($category = null, $alias = null, $lang = null)
     This method builds the SQL query usable in lastModified option of HttpCache  filter at behaviors in your front-end controller for category/alias/language:
 
-```php
+    ```php
      public function behaviors()
         {
             return [
@@ -83,6 +83,6 @@ php yii migrate --migrationPath=@vendor/integready/yii2-pages/migrations
                 ],
             ];
         }
-```
+    ```
 
 4) Watch the 'demo' folder for more information.
