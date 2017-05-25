@@ -3,6 +3,7 @@ Module Installation FAQ for integready/pages:
 
 1) Add in config of back-end side of your project (main.php) following strings:
 
+```
     'modules' => [
         'pages' => [
                     'class'            => 'integready\pages\Module',
@@ -14,6 +15,7 @@ Module Installation FAQ for integready/pages:
                     ],
                 ],
     ],
+```
 
     php yii migrate --migrationPath=@vendor/integready/yii2-pages/migrations
     will build all needed tables for the module.
@@ -38,6 +40,7 @@ Module Installation FAQ for integready/pages:
     c) integready\pages\components\PageDispatcher::getCategoryDbDependencySQL($category)
     This method builds the SQL query usable in DbDependency SQL option of PageCache filter at behaviors in your front-end controller for category:
 
+```
        public function behaviors()
         {
             return [
@@ -56,11 +59,12 @@ Module Installation FAQ for integready/pages:
                 ],
             ];
         }
+```
 
     d) integready\pages\components\PageDispatcher::getLastModifiedQuery($category = null, $alias = null, $lang = null)
     This method builds the SQL query usable in lastModified option of HttpCache  filter at behaviors in your front-end controller for category/alias/language:
 
-
+```
      public function behaviors()
         {
             return [
@@ -75,6 +79,6 @@ Module Installation FAQ for integready/pages:
                 ],
             ];
         }
-
+```
 
 3) Watch the 'demo' folder for more information.
