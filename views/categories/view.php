@@ -2,11 +2,11 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
-use muravshchyk\pages\models\Pages;
-use muravshchyk\pages\models\PagesCategory;
+use integready\pages\models\Pages;
+use integready\pages\models\PagesCategory;
 
 /* @var $this yii\web\View */
-/* @var $model muravshchyk\pages\models\Categories */
+/* @var $model integready\pages\models\Categories */
 
 $this->title                   = $model->name;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('pgs', 'Categories'), 'url' => ['index']];

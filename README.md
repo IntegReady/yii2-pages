@@ -1,11 +1,11 @@
-Module Installation FAQ for muravshchyk/pages:
+Module Installation FAQ for integready/pages:
 
 
 1) Add in config of back-end side of your project (main.php) following strings:
 
     'modules' => [
         'pages' => [
-                    'class'            => 'muravshchyk\pages\Module',
+                    'class'            => 'integready\pages\Module',
                     'allowedLanguages' => [
                         'ru-RU',
                         'en-US'
@@ -15,7 +15,7 @@ Module Installation FAQ for muravshchyk/pages:
                 ],
     ],
 
-    php yii migrate --migrationPath=@vendor/muravshchyk/yii2-pages/migrations
+    php yii migrate --migrationPath=@vendor/integready/yii2-pages/migrations
     will build all needed tables for the module.
 
     After all, you can access backend page using '/pages' link
@@ -24,18 +24,18 @@ Module Installation FAQ for muravshchyk/pages:
 
 2) In front-end side of your project you can access PageDispatcher component by using following namespace:
 
-    use muravshchyk\pages\components\PageDispatcher;
+    use integready\pages\components\PageDispatcher;
 
     You can use the methods of this component to dispatch your pages in front-end side:
 
-    a) muravshchyk\pages\components\PageDispatcher::getPageHTML($category, $alias, $lang = null)
+    a) integready\pages\components\PageDispatcher::getPageHTML($category, $alias, $lang = null)
     This method builds Page model by [category, alias and language]
 
-    b) muravshchyk\pages\components\PageDispatcher::getPagesOfCategoryQuery($category, $lang = null)
+    b) integready\pages\components\PageDispatcher::getPagesOfCategoryQuery($category, $lang = null)
     This method builds the SQL query for the all pages of direct category. You can use this query for making ActiveDataProvider in your
     controller and then pass it into GridView widget of the view to display list of pages of category.
 
-    c) muravshchyk\pages\components\PageDispatcher::getCategoryDbDependencySQL($category)
+    c) integready\pages\components\PageDispatcher::getCategoryDbDependencySQL($category)
     This method builds the SQL query usable in DbDependency SQL option of PageCache filter at behaviors in your front-end controller for category:
 
        public function behaviors()
@@ -57,7 +57,7 @@ Module Installation FAQ for muravshchyk/pages:
             ];
         }
 
-    d) muravshchyk\pages\components\PageDispatcher::getLastModifiedQuery($category = null, $alias = null, $lang = null)
+    d) integready\pages\components\PageDispatcher::getLastModifiedQuery($category = null, $alias = null, $lang = null)
     This method builds the SQL query usable in lastModified option of HttpCache  filter at behaviors in your front-end controller for category/alias/language:
 
      public function behaviors()

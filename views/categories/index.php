@@ -1,13 +1,13 @@
 <?php
 
-use muravshchyk\pages\models\Pages;
-use muravshchyk\pages\models\PagesCategory;
-use muravshchyk\pages\PageHelper;
+use integready\pages\models\Pages;
+use integready\pages\models\PagesCategory;
+use integready\pages\PageHelper;
 use yii\grid\GridView;
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $searchModel muravshchyk\pages\models\CategoriesSearch */
+/* @var $searchModel integready\pages\models\CategoriesSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title                   = Yii::t('pgs', 'Categories');

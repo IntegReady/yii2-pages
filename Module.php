@@ -1,6 +1,6 @@
 <?php
 
-namespace muravshchyk\pages;
+namespace integready\pages;
 
 use Yii;
 
@@ -13,7 +13,7 @@ class Module extends \yii\base\Module
      * @inheritdoc
      */
     // Контроллеры модуля заблокированы!!!
-    public $controllerNamespace = 'muravshchyk\pages\controllers';
+    public $controllerNamespace = 'integready\pages\controllers';
 
     // Разрешенные языки (по умолчанию только en-US
     public $allowedLanguages = [];

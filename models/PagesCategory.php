@@ -1,6 +1,6 @@
 <?php
 
-namespace muravshchyk\pages\models;
+namespace integready\pages\models;
 
 use Yii;
 

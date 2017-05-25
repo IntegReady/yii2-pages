@@ -1,6 +1,6 @@
 <?php
 
-namespace muravshchyk\pages;
+namespace integready\pages;
 
 use Yii;
 

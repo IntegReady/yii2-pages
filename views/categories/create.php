@@ -4,7 +4,7 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model muravshchyk\pages\models\Categories */
+/* @var $model integready\pages\models\Categories */
 
 $this->title                   = Yii::t('pgs', 'Create Category');
 $this->params['breadcrumbs'][] = ['label' => 'Categories', 'url' => ['categories']];

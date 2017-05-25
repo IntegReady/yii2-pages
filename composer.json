@@ -1,13 +1,13 @@
 {
-    "name": "muravshchyk/yii2-pages",
+    "name": "integready/yii2-pages",
     "description": "Pages module for Yii2",
     "keywords": ["yii", "pages"],
     "type": "yii2-extension",
     "license": "BSD-3-Clause",
     "authors": [
         {
-            "name": "muravshchyk",
-            "email": "muravshchyk@gmail.com"
+            "name": "integready",
+            "email": "integready@gmail.com"
         }
     ],
     "require": {
@@ -19,7 +19,7 @@
     },
     "autoload": {
         "psr-4": {
-            "muravshchyk\\pages\\": ""
+            "integready\\pages\\": ""
         }
     }
 }

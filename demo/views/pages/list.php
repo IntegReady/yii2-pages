@@ -2,7 +2,7 @@
 
 use yii\grid\GridView;
 use yii\helpers\Url;
-use muravshchyk\pages\PageHelper;
+use integready\pages\PageHelper;
 
 /**
  * @var \yii\data\ActiveDataProvider $dataProvider

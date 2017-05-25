@@ -1,10 +1,10 @@
 <?php
 
-namespace muravshchyk\pages\components;
+namespace integready\pages\components;
 
 use Yii;
-use muravshchyk\pages\models\Pages;
-use muravshchyk\pages\models\PagesCategory;
+use integready\pages\models\Pages;
+use integready\pages\models\PagesCategory;
 use yii\db\Query;
 
 /**

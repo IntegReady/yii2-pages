@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model muravshchyk\pages\models\Pages */
+/* @var $model integready\pages\models\Pages */
 
 $this->title                   = 'Обновить страницу: ' . $model->title;
 $this->params['breadcrumbs'][] = ['label' => 'Pages', 'url' => ['index']];

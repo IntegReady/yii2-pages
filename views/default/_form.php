@@ -4,11 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use dosamigos\ckeditor\CKEditor;
 use kartik\datetime\DateTimePicker;
-use muravshchyk\pages\PageHelper;
-use muravshchyk\pages\models\PagesCategory;
+use integready\pages\PageHelper;
+use integready\pages\models\PagesCategory;
 
 /* @var $this yii\web\View */
-/* @var $model muravshchyk\pages\models\Pages */
+/* @var $model integready\pages\models\Pages */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 

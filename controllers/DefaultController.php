@@ -1,9 +1,9 @@
 <?php
 
-namespace muravshchyk\pages\controllers;
+namespace integready\pages\controllers;
 
-use muravshchyk\pages\models\Pages;
-use muravshchyk\pages\models\PagesSearch;
+use integready\pages\models\Pages;
+use integready\pages\models\PagesSearch;
 use Yii;
 use yii\filters\VerbFilter;
 use yii\web\Controller;

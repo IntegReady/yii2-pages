@@ -5,7 +5,7 @@ namespace frontend\controllers;
 use Yii;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
-use muravshchyk\pages\components\PageDispatcher;
+use integready\pages\components\PageDispatcher;
 use yii\web\NotFoundHttpException;
 
 
