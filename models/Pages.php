@@ -61,7 +61,7 @@ class Pages extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'text'], 'required'],
+            [['title', 'text', 'category_id'], 'required'],
             [['category_id', 'sitemap'], 'integer'],
             [['text'], 'string'],
             [['date_created', 'date_updated', 'date_published_in', 'date_published_out'], 'safe'],
@@ -82,7 +82,7 @@ class Pages extends \yii\db\ActiveRecord
             'id'                 => Yii::t('pgs', 'ID'),
             'title'              => Yii::t('pgs', 'Title'),
             'alias'              => Yii::t('pgs', 'Alias'),
-            'category_id'        => Yii::t('pgs', 'Category ID'),
+            'category_id'        => Yii::t('pgs', 'Category'),
             'text'               => Yii::t('pgs', 'Text'),
             'language'           => Yii::t('pgs', 'Language'),
             'date_created'       => Yii::t('pgs', 'Date Created'),
@@ -106,7 +106,7 @@ class Pages extends \yii\db\ActiveRecord
      *
      * @return mixed|string
      */
-    public function getSitemapStatusById($id)
+    public static function getSitemapStatusById($id)
     {
         return isset(self::getSitemapStatusList()[$id]) ? self::getSitemapStatusList()[$id] : '';
     }

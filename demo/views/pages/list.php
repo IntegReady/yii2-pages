@@ -1,8 +1,8 @@
 <?php
 
+use integready\pages\PageHelper;
 use yii\grid\GridView;
 use yii\helpers\Url;
-use integready\pages\PageHelper;
 
 /**
  * @var \yii\data\ActiveDataProvider $dataProvider
@@ -11,7 +11,7 @@ use integready\pages\PageHelper;
 
 $this->title                   = Yii::t('pgs', $category_name);
 $this->params['breadcrumbs'][] = $this->title;
-$this->params['category'] = $category_name;
+$this->params['category']      = $category_name;
 ?>
 
 <div class="row">
@@ -22,26 +22,27 @@ $this->params['category'] = $category_name;
                     'dataProvider' => $dataProvider,
                     'tableOptions' => ['class' => ''],
                     'summary'      => false,
-                    'columns' => [
+                    'columns'      => [
                         [
-                            'format'         => 'raw',
-                            'value'          => function ($data) {
+                            'format' => 'raw',
+                            'value'  => function ($data) {
                                 $html = '<div class="news-item-new">';
                                 $html = '<div class="news-item__title">';
-                                $html.= ' <span class="news-item__date">';
-                                $html.= Yii::$app->formatter->asDatetime($data->date_published_in, 'php:d.m.Y H:i');
-                                $html.= '</span>';
-                                $html.= '<a href="' . Url::to([$this->params['category'] . '/' . $data->alias]) . '">';
-                                $html.= $data->title;
-                                $html.= '</a>';
-                                $html.= '</div>';
-                                $html.= '<div class="news-item__teaser">';
-                                $html.= '<p>' . PageHelper::makePreviewSnippet($data->text) . '</p>';
-                                $html.= '</div>';
-                                $html.= '</div>';
+                                $html .= ' <span class="news-item__date">';
+                                $html .= Yii::$app->formatter->asDatetime($data->date_published_in, 'php:d.m.Y H:i');
+                                $html .= '</span>';
+                                $html .= '<a href="' . Url::to([$this->params['category'] . '/' . $data->alias]) . '">';
+                                $html .= $data->title;
+                                $html .= '</a>';
+                                $html .= '</div>';
+                                $html .= '<div class="news-item__teaser">';
+                                $html .= '<p>' . PageHelper::makePreviewSnippet($data->text) . '</p>';
+                                $html .= '</div>';
+                                $html .= '</div>';
+
                                 return $html;
                             },
-                        ]
+                        ],
                     ],
                 ]) ?>
             </div>

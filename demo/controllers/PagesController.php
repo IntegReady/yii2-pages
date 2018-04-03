@@ -2,12 +2,11 @@
 
 namespace frontend\controllers;
 
+use integready\pages\components\PageDispatcher;
 use Yii;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
-use integready\pages\components\PageDispatcher;
 use yii\web\NotFoundHttpException;
-
 
 /**
  * ArticlesController implements the CRUD actions for Articles model.
@@ -63,7 +62,6 @@ class PagesController extends Controller
                     'pageSize' => 2,
                 ],
             ]);
-
 
             return $this->render('list', [
                     'dataProvider'  => $pagesDataProvider,
