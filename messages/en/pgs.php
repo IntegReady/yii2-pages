@@ -34,7 +34,7 @@ return [
     'Reset'                => 'Reset',
     'Create page'          => 'Create page',
     'Update page'          => 'Update page',
-    'Page-not-exist'       => 'The requested page does not exist.'
+    'Page-not-exist'       => 'The requested page does not exist.',
 ];
 
 

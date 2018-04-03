@@ -1,8 +1,5 @@
 <?php
 
-use integready\pages\models\Pages;
-use integready\pages\models\PagesCategory;
-use integready\pages\PageHelper;
 use yii\grid\GridView;
 use yii\helpers\Html;
 

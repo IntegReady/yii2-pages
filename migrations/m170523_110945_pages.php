@@ -13,7 +13,6 @@ class m170523_110945_pages extends Migration
     {
         $tableOptions = null;
         if ($this->db->driverName === 'mysql') {
-            // http://stackoverflow.com/questions/766809/whats-the-difference-between-utf8-general-ci-and-utf8-unicode-ci
             $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
         }
 
@@ -28,16 +27,16 @@ class m170523_110945_pages extends Migration
                 'date_created'       => 'timestamp on update current_timestamp',
                 'date_updated'       => $this->timestamp(),
                 'date_published_in'  => $this->timestamp(),
-                'date_published_out' => $this->timestamp()->defaultValue(NULL),
+                'date_published_out' => $this->timestamp()->defaultValue(null),
                 'sitemap'            => 'tinyint(4) NOT NULL DEFAULT 1',
             ], $tableOptions);
         }
 
         if ($this->db->schema->getTableSchema($this->tables['categoryTable'], true) === null) {
             $this->createTable($this->tables['categoryTable'], [
-                'id'                 => $this->primaryKey(),
-                'name'              => $this->char(64)->unique()->notNull(),
-                'description'              => $this->text()->defaultValue(NULL),
+                'id'          => $this->primaryKey(),
+                'name'        => $this->char(64)->unique()->notNull(),
+                'description' => $this->text()->defaultValue(null),
             ], $tableOptions);
         }
 
@@ -55,15 +54,4 @@ class m170523_110945_pages extends Migration
         }
         $this->execute("SET foreign_key_checks = 1;");
     }
-
-    /*
-    // Use safeUp/safeDown to run migration code within a transaction
-    public function safeUp()
-    {
-    }
-
-    public function safeDown()
-    {
-    }
-    */
 }

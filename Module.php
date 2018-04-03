@@ -15,9 +15,8 @@ class Module extends \yii\base\Module
     // Контроллеры модуля заблокированы!!!
     public $controllerNamespace = 'integready\pages\controllers';
 
-    // Разрешенные языки (по умолчанию только en-US
+    // Разрешенные языки (по умолчанию только en-US)
     public $allowedLanguages = [];
-
 
     /**
      * @inheritdoc
@@ -30,7 +29,7 @@ class Module extends \yii\base\Module
             Yii::$app->i18n->translations['pgs'] = [
                 'class'          => 'yii\i18n\PhpMessageSource',
                 'sourceLanguage' => 'en',
-                'basePath'       => $this->getBasePath() . '/messages'
+                'basePath'       => $this->getBasePath() . '/messages',
             ];
         }
     }

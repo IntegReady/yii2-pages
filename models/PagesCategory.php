@@ -3,6 +3,7 @@
 namespace integready\pages\models;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "pages_category".
@@ -15,14 +16,6 @@ use Yii;
  */
 class PagesCategory extends \yii\db\ActiveRecord
 {
-    const STATICS  = 1;
-    const NEWS     = 2;
-    const ANALYTIC = 3;
-
-    const STATICS_LABEL  = 'Static';
-    const NEWS_LABEL     = 'News';
-    const ANALYTIC_LABEL = 'Analytics';
-
     /**
      * @inheritdoc
      */
@@ -46,11 +39,9 @@ class PagesCategory extends \yii\db\ActiveRecord
      */
     public static function getCategoryList()
     {
-        return [
-            self::STATICS  => Yii::t('pgs', self::STATICS_LABEL),
-            self::NEWS     => Yii::t('pgs', self::NEWS_LABEL),
-            self::ANALYTIC => Yii::t('pgs', self::ANALYTIC_LABEL),
-        ];
+        $category = self::find()->all();
+
+        return ArrayHelper::map($category, 'id', 'name');
     }
 
     /**

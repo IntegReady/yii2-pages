@@ -1,10 +1,8 @@
 <?php
 
+use dosamigos\ckeditor\CKEditor;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use dosamigos\ckeditor\CKEditor;
-use integready\pages\PageHelper;
-use integready\pages\models\PagesCategory;
 
 /* @var $this yii\web\View */
 /* @var $model integready\pages\models\Pages */

@@ -1,11 +1,11 @@
 <?php
 
+use dosamigos\ckeditor\CKEditor;
+use integready\pages\models\PagesCategory;
+use integready\pages\PageHelper;
+use kartik\datetime\DateTimePicker;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use dosamigos\ckeditor\CKEditor;
-use kartik\datetime\DateTimePicker;
-use integready\pages\PageHelper;
-use integready\pages\models\PagesCategory;
 
 /* @var $this yii\web\View */
 /* @var $model integready\pages\models\Pages */
@@ -20,14 +20,16 @@ use integready\pages\models\PagesCategory;
 
     <?= $form->field($model, 'alias')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'category_id')->textInput()->dropDownList(PagesCategory::getCategoryList()) ?>
+    <?= $form->field($model, 'category_id')->dropDownList(PagesCategory::getCategoryList(), [
+        'prompt' => ' - ',
+    ]) ?>
 
     <?= $form->field($model, 'text')->widget(CKEditor::className(), [
         'options'       => [
             'rows' => 6,
         ],
         'clientOptions' => [
-            'contentsCss'    => Yii::$app->urlFrontendManager->createAbsoluteUrl(['/css/bootstrap.css']),
+            'contentsCss'    => Yii::$app->urlManager->createAbsoluteUrl(['/css/bootstrap.css']),
             'allowedContent' => true,
         ],
         'preset'        => 'full',
